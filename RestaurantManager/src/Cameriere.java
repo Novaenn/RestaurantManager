@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Cameriere {
 
-	private ArrayList<Ordine> listaOrdini;
+	ArrayList<Ordine> listaOrdini;
 	
 	public Cameriere() {
 		listaOrdini = new ArrayList<>();

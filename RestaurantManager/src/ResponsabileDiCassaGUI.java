@@ -45,12 +45,12 @@ public class ResponsabileDiCassaGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JTextPane txtpnResonsabileDiCassa = new JTextPane();
-		txtpnResonsabileDiCassa.setEditable(false);
-		txtpnResonsabileDiCassa.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		txtpnResonsabileDiCassa.setText("                                 RESONSABILE DI CASSA");
-		txtpnResonsabileDiCassa.setBounds(0, 0, 694, 45);
-		frame.getContentPane().add(txtpnResonsabileDiCassa);
+		JTextPane txtpnResponsabileDiCassa = new JTextPane();
+		txtpnResponsabileDiCassa.setEditable(false);
+		txtpnResponsabileDiCassa.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		txtpnResponsabileDiCassa.setText("                                 RESPONSABILE DI CASSA");
+		txtpnResponsabileDiCassa.setBounds(0, 0, 694, 45);
+		frame.getContentPane().add(txtpnResponsabileDiCassa);
 		
 		JButton btnNewButton = new JButton("Indietro");
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -64,5 +64,4 @@ public class ResponsabileDiCassaGUI {
 		btnNewButton.setBounds(285, 511, 135, 65);
 		frame.getContentPane().add(btnNewButton);
 	}
-
 }

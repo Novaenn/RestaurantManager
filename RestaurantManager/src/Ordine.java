@@ -47,12 +47,13 @@ public class Ordine {
 	public String formattaOrdine() {
 		String stringaOrdine = "";
 		for (int i = 0; i < piattiOrdinati.size(); i++) {
-			stringaOrdine +=String.format("%-25s %5.2f", piattiOrdinati.get(i).getNome(), piattiOrdinati.get(i).getPrezzo());
+			stringaOrdine +=String.format("%-25s %5.2f", piattiOrdinati.get(i).getNome(), piattiOrdinati.get(i).getPrezzo());				
 			stringaOrdine += "\n";
 		}
 		stringaOrdine += "\n";
-		stringaOrdine += "\n-------------------------------- \n";
+		stringaOrdine += "\n-------------------------------- \n";			
 		stringaOrdine += String.format("Totale:%24.2f ", this.getPrezzoTot());
 		return stringaOrdine;
-	}
+		}
+	
 }

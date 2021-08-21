@@ -4,11 +4,23 @@ import java.io.PrintWriter;
 
 public class Scontrino {
 
-	private String scontrino;
-	
-	public Scontrino() {
-		scontrino = "";
-	}
-	
-	
+    private String scontrino;
+
+    public Scontrino(String scontr) {
+        scontrino = scontr;
+    }
+
+    public void stampa(String fileName){
+    	try {
+    		File file = new File(fileName);
+    		PrintWriter fileOutput = new PrintWriter(fileName);
+    		fileOutput.println(scontrino);
+    		fileOutput.close();
+    	}
+    	catch(IOException e) {
+    		// DEVE FA QUALCOSA I GUESS
+    	}
+    	
+    }
+
 }
