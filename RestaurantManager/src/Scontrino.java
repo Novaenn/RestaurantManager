@@ -13,14 +13,14 @@ public class Scontrino {
     public void stampa(String fileName){
     	try {
     		File file = new File(fileName);
-    		PrintWriter fileOutput = new PrintWriter(fileName);
+    		PrintWriter fileOutput = new PrintWriter(file);
     		fileOutput.println(scontrino);
     		fileOutput.close();
     	}
     	catch(IOException e) {
-    		// DEVE FA QUALCOSA I GUESS
+    		System.out.println("Errore di Sistema.");
     	}
-    	
+    
     }
 
 }

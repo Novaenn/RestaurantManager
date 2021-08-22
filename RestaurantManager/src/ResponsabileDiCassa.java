@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-
 public class ResponsabileDiCassa {
 	
-	private static int counter = 1;
+	private static int nScontrino = 1;
 	
 	public static String creaFileName() {
-		String nome = "Scontrino #"+String.valueOf(counter)+".txt";
-		counter++;
+		String nome = "Scontrino #"+String.valueOf(nScontrino)+".txt";
+		nScontrino++;
 		return nome;
 	}
 	
