@@ -23,9 +23,12 @@ public class Ordine {
 		prezzoTot += nPiatto.getPrezzo();
 	}
 	
-	public void removePiattoOrdinato(int numero) {
-		piattiOrdinati.remove(numero);
-		prezzoTot -= piattiOrdinati.get(numero).getPrezzo();
+	public void removePiattoOrdinato(Piatto nPiatto) {
+		for (int i = 0; i <= piattiOrdinati.size(); i++) {
+			if (piattiOrdinati.get(i).getNome() == nPiatto.getNome()) {
+				piattiOrdinati.remove(i);
+			}
+		}
 	}
 	
 	public float getPrezzoTot() {
@@ -42,6 +45,11 @@ public class Ordine {
 
 	public void setPiattiOrdinati(ArrayList<Piatto> piattiOrdinati) {
 		this.piattiOrdinati = piattiOrdinati;
+	}
+	
+	public void clear() {
+		prezzoTot = 0;
+		piattiOrdinati = new ArrayList<>();
 	}
 	
 	public String formattaOrdine() {

@@ -5,7 +5,7 @@ import javax.swing.JTextPane;
 
 
 
-
+import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;

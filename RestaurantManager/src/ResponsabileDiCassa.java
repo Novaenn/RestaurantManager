@@ -1,14 +1,20 @@
+import java.util.ArrayList;
+
 public class ResponsabileDiCassa {
 	
-	private static int nScontrino = 1;
+	private int counter = 1;
 	
-	public static String creaFileName() {
-		String nome = "Scontrino #"+String.valueOf(nScontrino)+".txt";
-		nScontrino++;
+	public ResponsabileDiCassa() {
+		
+	}
+	
+	public String creaFileName() {
+		String nome = "Scontrino #"+String.valueOf(counter)+".txt";
+		counter++;
 		return nome;
 	}
 	
-    public static void creaScontrino(Ordine ordine){
+    public void creaScontrino(Ordine ordine){
         String testo = ordine.formattaOrdine();
         Scontrino scontry = new Scontrino(testo);
         scontry.stampa(creaFileName());
