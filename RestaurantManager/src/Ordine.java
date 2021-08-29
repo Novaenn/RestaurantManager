@@ -21,6 +21,7 @@ public class Ordine {
 		for (int i = 0; i <= piattiOrdinati.size(); i++) {
 			if (piattiOrdinati.get(i).getNome() == nPiatto.getNome()) {
 				piattiOrdinati.remove(i);
+				prezzoTot -= piattiOrdinati.get(i).getPrezzo();
 			}
 		}
 	}
