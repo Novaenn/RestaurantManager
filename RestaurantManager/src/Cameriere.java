@@ -2,22 +2,24 @@ import java.util.ArrayList;
 
 public class Cameriere {
 
-	ArrayList<Ordine> listaOrdini;
+	Ordine ordine;
 	
 	public Cameriere() {
-		listaOrdini = new ArrayList<>();
+		Ordine ordine = new Ordine();
+	}
+
+	
+	public void aggiungiNellOrdine(Piatto cPiatto) {
+		ordine.addPiattoOrdinato(cPiatto);
 	}
 	
-	public void creaOrdine(Ordine cOrdine) {
-		listaOrdini.add(cOrdine);
+	public void rimuoviNellOrdine(Piatto cPiatto) {
+		ordine.removePiattoOrdinato(cPiatto);
 	}
 	
-	public void aggiungiNellOrdine(int numeroOrdine, Piatto cPiatto) {
-		listaOrdini.get(numeroOrdine).addPiattoOrdinato(cPiatto);
-	}
-	
-	public void rimuoviNellOrdine(int numeroOrdine, int numeroPiatto) {
-		listaOrdini.get(numeroOrdine).removePiattoOrdinato(numeroPiatto);
+	public void finalizzaOrdine() {
+		Cuoco.addOrdine(ordine);
+		ordine.clear();
 	}
 	
 }
