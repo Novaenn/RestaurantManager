@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
+import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;

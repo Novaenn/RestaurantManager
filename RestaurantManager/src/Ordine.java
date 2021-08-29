@@ -11,21 +11,19 @@ public class Ordine {
 		piattiOrdinati = new ArrayList<>();
 	}
 	
-	//public static void main(String[] args) {
-	//	Ordine ciao = new Ordine();
-	//	ciao.addPiattoOrdinato(new Piatto("Gatto", 25));
-	//	ciao.addPiattoOrdinato(new Piatto("Capra", 17));
-	//	System.out.println(ciao.formattaOrdine());
-	//}
 
 	public void addPiattoOrdinato(Piatto nPiatto) {
 		piattiOrdinati.add(nPiatto);
 		prezzoTot += nPiatto.getPrezzo();
 	}
 	
-	public void removePiattoOrdinato(int numero) {
-		piattiOrdinati.remove(numero);
-		prezzoTot -= piattiOrdinati.get(numero).getPrezzo();
+	public void removePiattoOrdinato(Piatto nPiatto) {
+		for (int i = 0; i <= piattiOrdinati.size(); i++) {
+			if (piattiOrdinati.get(i).getNome() == nPiatto.getNome()) {
+				piattiOrdinati.remove(i);
+				prezzoTot -= piattiOrdinati.get(i).getPrezzo();
+			}
+		}
 	}
 	
 	public float getPrezzoTot() {
@@ -42,6 +40,11 @@ public class Ordine {
 
 	public void setPiattiOrdinati(ArrayList<Piatto> piattiOrdinati) {
 		this.piattiOrdinati = piattiOrdinati;
+	}
+	
+	public void clear() {
+		prezzoTot = 0;
+		piattiOrdinati = new ArrayList<>();
 	}
 	
 	public String formattaOrdine() {

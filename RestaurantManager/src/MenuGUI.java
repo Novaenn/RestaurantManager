@@ -60,6 +60,9 @@ public class MenuGUI {
 		JTextPane txtpnMenu = new JTextPane();
 		txtpnMenu.setEditable(false);
 		txtpnMenu.setText("MENU");
+		//for(String a : anomalies){
+		//	   txtpnMenu.append(a + "\n");
+		//	}
 		txtpnMenu.setBounds(56, 21, 571, 256);
 		frame.getContentPane().add(txtpnMenu);
 		
