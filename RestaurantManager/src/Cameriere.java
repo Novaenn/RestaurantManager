@@ -18,6 +18,7 @@ public class Cameriere {
 	
 	public void finalizzaOrdine() {
 		Cuoco.addOrdine(ordine);
+		ResponsabileDiCassa.addOrdine(ordine);
 		ordine.clear();
 	}
 	

@@ -1,26 +1,29 @@
 
 public class Chef {
 	
-	private Menu cMenu;
+	private Menu Menu;
 	
-	public Chef() {
-		Menu cMenu = new Menu();
+	public Chef(Menu cMenu) {
+		Menu =  cMenu;
 	}
 	
 	public void aggiungiPiatto(String nomePiatto, float prezzoPiatto) {
-		cMenu.addPiatto(new Piatto(nomePiatto, prezzoPiatto));
+		Menu.addPiatto(new Piatto(nomePiatto, prezzoPiatto));
 	}
 
 	public void eliminaPiatto(String nomePiatto) {
-		cMenu.removePiatto(nomePiatto);
+		Menu.removePiatto(nomePiatto);
 	}
 	
 	public void modificaNome(String newName, String nomePiatto) {
-		cMenu.modificaNome(newName, nomePiatto);
+		Menu.modificaNome(newName, nomePiatto);
 	}
 	
 	public void modificaPrezzo(float prezzoPiatto, String nomePiatto) {
-		cMenu.modificaPrezzo(prezzoPiatto, nomePiatto);
+		Menu.modificaPrezzo(prezzoPiatto, nomePiatto);
 	}
 	
+	public String stampa() {
+		return Menu.formattaMenu();
+	}
 }

@@ -4,11 +4,15 @@ public class ResponsabileDiCassa {
 	
 	private int nScontrino = 1;
 	
-	// LISTA DI ORDINI CON I PREZZI
+	static ArrayList<Ordine> ordiniDaPagare;
 	
 	public ResponsabileDiCassa() {
 		
 	}
+	
+	public static void addOrdine(Ordine ord) {
+		ordiniDaPagare.add(ord);
+    }
 	
 	public String creaFileName() {
 		String nome = "Scontrino #"+String.valueOf(nScontrino)+".txt";
@@ -20,7 +24,7 @@ public class ResponsabileDiCassa {
         String testo = ordine.formattaOrdine();
         Scontrino scontry = new Scontrino(testo);
         scontry.stampa(creaFileName());
-        // ELIMINA ORDINE DALLA LISTA
+        ordiniDaPagare.remove(ordine);
     }
 
 }

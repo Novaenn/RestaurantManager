@@ -29,5 +29,8 @@ public class Piatto {
 		this.prezzo = prezzo;
 	}
 	
+	public String toString() {
+		return this.nome+" "+String.valueOf(this.prezzo)+"€";
+	}
 	
 }
