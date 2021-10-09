@@ -18,12 +18,8 @@ public class Ordine {
 	}
 	
 	public void removePiattoOrdinato(Piatto nPiatto) {
-		for (int i = 0; i <= piattiOrdinati.size(); i++) {
-			if (piattiOrdinati.get(i).getNome() == nPiatto.getNome()) {
-				piattiOrdinati.remove(i);
-				prezzoTot -= piattiOrdinati.get(i).getPrezzo();
-			}
-		}
+		piattiOrdinati.remove(nPiatto);
+		prezzoTot -= nPiatto.getPrezzo();
 	}
 	
 	public float getPrezzoTot() {

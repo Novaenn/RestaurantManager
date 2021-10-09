@@ -28,30 +28,51 @@ public class Menu {
 	}
 	
 	public void removePiatto(String nomePiatto) {
+		boolean done = false;
 		for (int i = 0; i < listaPiatti.size(); i++) {
-			if (listaPiatti.get(i).getNome() == nomePiatto) {
+			if (listaPiatti.get(i).getNome().equals(nomePiatto)) {
 				listaPiatti.remove(i);
+				done = true;
 			}
 		}
-		creaMenuCartaceo();
+		if (!done) {
+			System.out.println("Piatto non trovato!");
+		}
+		else {
+			creaMenuCartaceo();
+		}
 	}
 	
 	public void modificaNome(String newNome, String nomePiatto) {
+		boolean done = false;
 		for (int i = 0; i < listaPiatti.size(); i++) {
-			if (listaPiatti.get(i).getNome() == nomePiatto) {
+			if (listaPiatti.get(i).getNome().equals(nomePiatto)) {
 				listaPiatti.get(i).setNome(newNome);
+				done = true;
 			}
 		}
-		creaMenuCartaceo();
+		if (!done) {
+			System.out.println("Piatto non trovato!");
+		}
+		else {
+			creaMenuCartaceo();
+		}
 	}
 
 	public void modificaPrezzo(float newPrezzo, String nomePiatto) {
+		boolean done = false;
 		for (int i = 0; i < listaPiatti.size(); i++) {
-			if (listaPiatti.get(i).getNome() == nomePiatto) {
+			if (listaPiatti.get(i).getNome().equals(nomePiatto)) {
 				listaPiatti.get(i).setPrezzo(newPrezzo);
+				done = true;
 			}
 		}
-		creaMenuCartaceo();
+		if (!done) {
+			System.out.println("Piatto non trovato!");
+		}
+		else {
+			creaMenuCartaceo();
+		}
 	}
 	
 	public String formattaMenu() {

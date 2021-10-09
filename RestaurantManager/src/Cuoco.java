@@ -13,7 +13,6 @@ public class Cuoco {
     }
 
     public void rimuoviPiattoOrdinato(Ordine ordine, Piatto piatto){
-        String nomepiatto = piatto.getNome();
         ordine.removePiattoOrdinato(piatto); 
         if (ordine.getPiattiOrdinati().size() == 0){
             ordini.remove(ordine);
