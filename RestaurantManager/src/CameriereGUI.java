@@ -25,11 +25,11 @@ public class CameriereGUI {
     /**
      * Launch the application.
      */
-    public static void main(String[] args, Cameriere camy) {
+    public static void main(String[] args, Cameriere camy, Chef mama) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CameriereGUI window = new CameriereGUI(camy);
+                    CameriereGUI window = new CameriereGUI(camy, mama);
                     window.frmCameriere.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -41,14 +41,14 @@ public class CameriereGUI {
     /**
      * Create the application.
      */
-    public CameriereGUI(Cameriere camy) {
-        initialize(camy);
+    public CameriereGUI(Cameriere camy, Chef cooking) {
+        initialize(camy, cooking);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize(Cameriere camy) {
+    private void initialize(Cameriere camy, Chef cooking) {
     	frmCameriere = new JFrame();
     	frmCameriere.setResizable(false);
     	frmCameriere.setBounds(100, 100, 700, 700);
@@ -63,32 +63,46 @@ public class CameriereGUI {
         frmCameriere.getContentPane().add(txtpnCameriere);
         
         JButton btnNewButton = new JButton("Indietro");
-        btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
         btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                MenuGUI.main(new String[0]);
                 frmCameriere.dispose();
             }
         });
-        btnNewButton.setBounds(271, 531, 135, 65);
+        btnNewButton.setBounds(81, 518, 135, 65);
         frmCameriere.getContentPane().add(btnNewButton);
         
         JButton btnNewButton_2 = new JButton("Prendi ordine");
         btnNewButton_2.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
-        		PrendiOrdineGUI.main(new String[0], camy);
+        		PrendiOrdineGUI.main(new String[0], camy, cooking);
         	}
         });
         btnNewButton_2.setBounds(81, 88, 128, 65);
         frmCameriere.getContentPane().add(btnNewButton_2);
         
+        JButton btnNewButton_1 = new JButton("Finalizza");
+        btnNewButton_1.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		System.out.println(camy.ordine.formattaOrdine());
+        		camy.finalizzaOrdine();
+        	}
+        });
+        btnNewButton_1.setBounds(479, 518, 135, 65);
+        frmCameriere.getContentPane().add(btnNewButton_1);
+        
+        JButton btnNewButton_3 = new JButton("Modifica Ordine");
+        btnNewButton_3.addMouseListener(new MouseAdapter() {
+        	public void mouseClicked(MouseEvent e) {
+        		ModificaOrdineGUI.main(new String[0], camy, cooking);
+        	}
+        });
+        btnNewButton_3.setBounds(486, 88, 128, 65);
+        frmCameriere.getContentPane().add(btnNewButton_3);
+        
         
     }
-	
 }

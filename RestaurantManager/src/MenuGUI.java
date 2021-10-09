@@ -42,7 +42,7 @@ public class MenuGUI {
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize(Cameriere Luca, Chef Cracco) {
+    private void initialize(Cameriere cameriere, Chef chef) {
         frame = new JFrame();
         frame.setResizable(false);
         frame.setBounds(100, 100, 700, 700);
@@ -74,7 +74,7 @@ public class MenuGUI {
         btnNewButton_1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                ChefGUI.main(new String[0], Cracco);
+                ChefGUI.main(new String[0], chef);
                   
             }
         });
@@ -85,7 +85,7 @@ public class MenuGUI {
         btnNewButton_2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CameriereGUI.main(new String[0], Luca);
+                CameriereGUI.main(new String[0], cameriere, chef);
                 
             }
         });
