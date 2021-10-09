@@ -73,7 +73,7 @@ public class ModificaPrezzoPiattoGUI {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				nomeChef.modificaPrezzo(Float.valueOf(txtNuovoPrezzo.getText()), txtNomePiatto.getText());
-				System.out.println(nomeChef.stampa());
+				//System.out.println(nomeChef.stampa());
 				frmModificaPrezzo.dispose();
 			}
 		});

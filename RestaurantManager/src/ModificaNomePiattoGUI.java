@@ -73,7 +73,7 @@ public class ModificaNomePiattoGUI {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				nomeChef.modificaNome(txtNuovoNome.getText(), txtNomePiatto.getText());
-				System.out.println(nomeChef.stampa());
+				//System.out.println(nomeChef.stampa());
 				frmModificaNome.dispose();
 			}
 		});

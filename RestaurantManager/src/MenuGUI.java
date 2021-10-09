@@ -75,7 +75,7 @@ public class MenuGUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 ChefGUI.main(new String[0], Cracco);
-                frame.dispose();  //da rimuovere
+                  
             }
         });
         btnNewButton_1.setBounds(82, 343, 135, 65);
@@ -86,7 +86,7 @@ public class MenuGUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 CameriereGUI.main(new String[0], Luca);
-                frame.dispose();
+                
             }
         });
         btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -98,7 +98,7 @@ public class MenuGUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 CuocoGUI.main(new String[0]);
-                frame.dispose();
+                
             }
         });
         btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -110,7 +110,7 @@ public class MenuGUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 ResponsabileDiCassaGUI.main(new String[0]);
-                frame.dispose();
+                
             }
         });
         btnNewButton_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

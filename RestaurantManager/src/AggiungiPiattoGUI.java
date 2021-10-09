@@ -73,7 +73,7 @@ public class AggiungiPiattoGUI {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
-				System.out.println(nomeChef.stampa());
+				//System.out.println(nomeChef.stampa());
 				frmAggiungiPiatto.dispose();
 			}
 		});

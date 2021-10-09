@@ -1,5 +1,5 @@
 
-public class Cameriere {
+public class Cameriere extends Menu {
 
 	Ordine ordine;
 	
@@ -22,4 +22,7 @@ public class Cameriere {
 		ordine.clear();
 	}
 	
+	public void annullaOrdine() {
+		ordine = new Ordine();
+	}
 }

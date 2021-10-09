@@ -15,6 +15,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CameriereGUI {
 
@@ -61,6 +63,10 @@ public class CameriereGUI {
         frmCameriere.getContentPane().add(txtpnCameriere);
         
         JButton btnNewButton = new JButton("Indietro");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -69,44 +75,20 @@ public class CameriereGUI {
                 frmCameriere.dispose();
             }
         });
-        btnNewButton.setBounds(81, 510, 135, 65);
+        btnNewButton.setBounds(271, 531, 135, 65);
         frmCameriere.getContentPane().add(btnNewButton);
         
-        JButton btnNewButton_1 = new JButton("Finalizza");
-        btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        btnNewButton_1.addMouseListener(new MouseAdapter() {
+        JButton btnNewButton_2 = new JButton("Prendi ordine");
+        btnNewButton_2.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
-        		camy.finalizzaOrdine();
+        		PrendiOrdineGUI.main(new String[0], camy);
         	}
         });
-        btnNewButton_1.setBounds(473, 510, 135, 65);
-        frmCameriere.getContentPane().add(btnNewButton_1);
-        
-        JButton btnNewButton_2 = new JButton("Prendi ordine");
         btnNewButton_2.setBounds(81, 88, 128, 65);
         frmCameriere.getContentPane().add(btnNewButton_2);
         
-        JPopupMenu popupMenu = new JPopupMenu();
-        addPopup(btnNewButton_2, popupMenu);
-        
         
     }
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
+	
 }

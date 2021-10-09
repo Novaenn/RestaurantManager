@@ -61,7 +61,6 @@ public class ChefGUI {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuGUI.main(new String[0]);
 				frmChef.dispose();
 			}
 		});

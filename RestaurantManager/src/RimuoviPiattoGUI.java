@@ -64,7 +64,7 @@ public class RimuoviPiattoGUI {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				nomeChef.eliminaPiatto(txtNomePiatto.getText());
-				System.out.println(nomeChef.stampa());
+				//System.out.println(nomeChef.stampa());
 				frmRimuoviPiatto.dispose();
 			}
 		});
