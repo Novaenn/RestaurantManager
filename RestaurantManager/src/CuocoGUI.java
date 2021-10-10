@@ -5,10 +5,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
-public class CuocoGUI {
+public class CuocoGUI extends JDialog {
 
 	private JFrame frame;
 
@@ -61,8 +64,10 @@ public class CuocoGUI {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(285, 511, 135, 65);
+		btnNewButton.setBounds(285, 556, 135, 65);
 		frame.getContentPane().add(btnNewButton);
-	}
+		
+		
 
+	}
 }
