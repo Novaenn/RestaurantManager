@@ -4,12 +4,15 @@ import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ModificaPrezzoPiattoGUI {
 
@@ -49,6 +52,8 @@ public class ModificaPrezzoPiattoGUI {
 		frmModificaPrezzo.setBounds(100, 100, 460, 310);
 		frmModificaPrezzo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmModificaPrezzo.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frmModificaPrezzo.setIconImage(img.getImage());
 		
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.setName("");
@@ -60,6 +65,17 @@ public class ModificaPrezzoPiattoGUI {
 		txtNomePiatto.setColumns(10);
 		
 		txtNuovoPrezzo = new JTextField();
+		txtNuovoPrezzo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					nomeChef.modificaPrezzo(Float.valueOf(txtNuovoPrezzo.getText()), txtNomePiatto.getText());
+				//System.out.println(nomeChef.stampa());
+				frmModificaPrezzo.dispose();
+				}
+				
+			}
+		});
 		txtNuovoPrezzo.setToolTipText("Inserisci qui il nuovo prezzo del piatto");
 		txtNuovoPrezzo.setForeground(Color.BLACK);
 		txtNuovoPrezzo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -72,9 +88,15 @@ public class ModificaPrezzoPiattoGUI {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				nomeChef.modificaPrezzo(Float.valueOf(txtNuovoPrezzo.getText()), txtNomePiatto.getText());
-				//System.out.println(nomeChef.stampa());
-				frmModificaPrezzo.dispose();
+				try {
+					nomeChef.modificaPrezzo(Float.valueOf(txtNuovoPrezzo.getText()), txtNomePiatto.getText());
+					//System.out.println(nomeChef.stampa());
+					frmModificaPrezzo.dispose();
+				}
+				catch (NumberFormatException ex) {
+					ErrorGUI.main(new String[0]);
+					frmModificaPrezzo.dispose();
+				}
 			}
 		});
 		btnNewButton.setBounds(60, 203, 100, 45);

@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
@@ -54,6 +55,8 @@ public class CameriereGUI {
     	frmCameriere.setBounds(100, 100, 700, 700);
     	frmCameriere.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frmCameriere.getContentPane().setLayout(null);
+    	ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frmCameriere.setIconImage(img.getImage());
         
         JTextPane txtpnCameriere = new JTextPane();
         txtpnCameriere.setEditable(false);

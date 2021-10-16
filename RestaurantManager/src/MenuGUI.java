@@ -1,18 +1,17 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-
 import javax.swing.JTextPane;
-import javax.swing.plaf.basic.BasicMenuBarUI;
-
 import java.awt.Cursor;
 import java.awt.SystemColor;
+import java.awt.Component;
+import javax.swing.SwingConstants;
 
 
 
@@ -52,6 +51,7 @@ public class MenuGUI {
      * Initialize the contents of the frame.
      */
     private void initialize(Cameriere cameriere, Chef chef, Menu iMenu) {
+    	
         frame = new JFrame();
         frame.setResizable(false);
         frame.setBounds(100, 100, 700, 700);
@@ -59,8 +59,13 @@ public class MenuGUI {
         frame.getContentPane().setLayout(null);
         
         
+        ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frame.setIconImage(img.getImage());
+        
         JButton btnNewButton = new JButton("Esci");
         btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        ImageIcon imgExit = new ImageIcon("ExitIcon.png");
+        btnNewButton.setIcon(imgExit);
         btnNewButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -94,6 +99,8 @@ public class MenuGUI {
         
         
         JButton btnNewButton_1 = new JButton("Chef");
+        ImageIcon imgChef = new ImageIcon("Chef.png");
+        btnNewButton_1.setIcon(imgChef);
         btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnNewButton_1.addMouseListener(new MouseAdapter() {
             @Override
@@ -107,6 +114,8 @@ public class MenuGUI {
         
         
         JButton btnNewButton_2 = new JButton("Cameriere");
+        ImageIcon imgCameriere = new ImageIcon("Posate.png");
+        btnNewButton_2.setIcon(imgCameriere);
         btnNewButton_2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -119,6 +128,8 @@ public class MenuGUI {
         
         
         JButton btnNewButton_3 = new JButton("Cuoco");
+        ImageIcon imgCuoco = new ImageIcon("Cuoco.png");
+        btnNewButton_3.setIcon(imgCuoco);
         btnNewButton_3.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -131,7 +142,9 @@ public class MenuGUI {
         frame.getContentPane().add(btnNewButton_3);
         
         
-        JButton btnNewButton_4 = new JButton("Resonsabile di cassa");
+        JButton btnNewButton_4 = new JButton("Responsabile di cassa");
+        ImageIcon imgCassa = new ImageIcon("Cassa.png");
+        btnNewButton_4.setIcon(imgCassa);
         btnNewButton_4.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -160,9 +173,12 @@ public class MenuGUI {
         
         
         JTextPane txtpnMenu_1 = new JTextPane();
+        txtpnMenu_1.setEditable(false);
         txtpnMenu_1.setBackground(SystemColor.menu);
         txtpnMenu_1.setText("MENU");
         txtpnMenu_1.setBounds(56, 34, 89, 20);
         frame.getContentPane().add(txtpnMenu_1);
+        
+        
     }
 }

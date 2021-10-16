@@ -3,10 +3,13 @@ import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ModificaOrdineGUI {
 
@@ -43,6 +46,8 @@ public class ModificaOrdineGUI {
 		frame.setBounds(100, 100, 460, 310);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frame.setIconImage(img.getImage());
 		JButton btnNewButton_1_1 = new JButton("Annulla");
 		btnNewButton_1_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -54,6 +59,16 @@ public class ModificaOrdineGUI {
 		frame.getContentPane().add(btnNewButton_1_1);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					camerupt.rimuoviNellOrdine((Piatto) comboBox.getSelectedItem());
+					//System.out.println(camerupt.ordine.toString());
+					frame.dispose();
+				}
+			}
+		});
 		comboBox.setToolTipText("Scegli un piatto da ordinare");
 		comboBox.setBounds(160, 77, 123, 22);
 		for (int i = 0; i < camerupt.ordine.getPiattiOrdinati().size(); i++) {

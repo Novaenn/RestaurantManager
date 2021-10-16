@@ -7,6 +7,8 @@ import javax.swing.JTextPane;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -48,6 +50,8 @@ public class ChefGUI {
 		frmChef.setBounds(100, 100, 700, 700);
 		frmChef.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmChef.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frmChef.setIconImage(img.getImage());
 		
 		JTextPane txtpnChef = new JTextPane();
 		txtpnChef.setEditable(false);

@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -47,6 +48,8 @@ public class CuocoGUI extends JDialog {
 		frame.setBounds(100, 100, 700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frame.setIconImage(img.getImage());
 		
 		JTextPane txtpnCuoco = new JTextPane();
 		txtpnCuoco.setEditable(false);
@@ -60,7 +63,6 @@ public class CuocoGUI extends JDialog {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuGUI.main(new String[0]);
 				frame.dispose();
 			}
 		});

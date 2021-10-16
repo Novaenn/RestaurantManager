@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,6 +10,8 @@ import javax.swing.JTextPane;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PrendiOrdineGUI {
 
@@ -45,6 +48,8 @@ public class PrendiOrdineGUI {
 		frame.setBounds(100, 100, 460, 310);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frame.setIconImage(img.getImage());
 
 		
 		JButton btnNewButton_1_1 = new JButton("Annulla");
@@ -87,6 +92,17 @@ public class PrendiOrdineGUI {
 		int[] quantità = new int[] {1,2,3,4,5,6,7,8,9,10};
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					for (int x = 0; x <= comboBox_1.getSelectedIndex(); x++) {
+						camerupt.aggiungiNellOrdine((Piatto) comboBox.getSelectedItem());
+					}
+					frame.dispose();
+				}
+			}
+		});
 		
 		for (int k = 0; k < quantità.length; k++) {
 			comboBox_1.addItem(quantità[k]);

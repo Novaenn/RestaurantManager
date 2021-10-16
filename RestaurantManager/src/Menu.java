@@ -65,15 +65,14 @@ public class Menu {
 		for (int i = 0; i < listaPiatti.size(); i++) {
 			if (listaPiatti.get(i).getNome().equals(nomePiatto)) {
 				listaPiatti.remove(i);
+				creaMenuCartaceo();
 				done = true;
-			}
+			}	
 		}
-		if (!done) {
-			System.out.println("Piatto non trovato!");
+		if (done == false) {
+			ErrorGUI.main(new String[0]);
 		}
-		else {
-			creaMenuCartaceo();
-		}
+		
 	}
 	
 	public void modificaNome(String newNome, String nomePiatto) {
@@ -81,14 +80,12 @@ public class Menu {
 		for (int i = 0; i < listaPiatti.size(); i++) {
 			if (listaPiatti.get(i).getNome().equals(nomePiatto)) {
 				listaPiatti.get(i).setNome(newNome);
+				creaMenuCartaceo();
 				done = true;
 			}
 		}
-		if (!done) {
-			System.out.println("Piatto non trovato!");
-		}
-		else {
-			creaMenuCartaceo();
+		if (done == false) {
+			ErrorGUI.main(new String[0]);
 		}
 	}
 
@@ -97,14 +94,12 @@ public class Menu {
 		for (int i = 0; i < listaPiatti.size(); i++) {
 			if (listaPiatti.get(i).getNome().equals(nomePiatto)) {
 				listaPiatti.get(i).setPrezzo(newPrezzo);
+				creaMenuCartaceo();
 				done = true;
 			}
 		}
-		if (!done) {
-			System.out.println("Piatto non trovato!");
-		}
-		else {
-			creaMenuCartaceo();
+		if (done == false) {
+			ErrorGUI.main(new String[0]);
 		}
 	}
 	

@@ -4,12 +4,15 @@ import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ModificaNomePiattoGUI {
 
@@ -49,6 +52,8 @@ public class ModificaNomePiattoGUI {
 		frmModificaNome.setBounds(100, 100, 460, 310);
 		frmModificaNome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmModificaNome.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frmModificaNome.setIconImage(img.getImage());
 		
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.setName("");
@@ -60,6 +65,16 @@ public class ModificaNomePiattoGUI {
 		txtNomePiatto.setColumns(10);
 		
 		txtNuovoNome = new JTextField();
+		txtNuovoNome.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					nomeChef.modificaNome(txtNuovoNome.getText(), txtNomePiatto.getText());
+					//System.out.println(nomeChef.stampa());
+					frmModificaNome.dispose();
+				}
+			}
+		});
 		txtNuovoNome.setToolTipText("Inserisci qui il nuovo nome del piatto");
 		txtNuovoNome.setForeground(Color.BLACK);
 		txtNuovoNome.setHorizontalAlignment(SwingConstants.CENTER);

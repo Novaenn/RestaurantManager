@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -10,6 +11,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
 import java.awt.Cursor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class AggiungiPiattoGUI {
 
@@ -49,6 +52,8 @@ public class AggiungiPiattoGUI {
 		frmAggiungiPiatto.setBounds(100, 100, 460, 310);
 		frmAggiungiPiatto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAggiungiPiatto.getContentPane().setLayout(null);
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frmAggiungiPiatto.setIconImage(img.getImage());
 		
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.setName("");
@@ -60,7 +65,23 @@ public class AggiungiPiattoGUI {
 		txtNomePiatto.setColumns(10);
 		
 		txtPrezzoPiatto = new JTextField();
-		txtPrezzoPiatto.setToolTipText("Inserisci qui il prezzo del piatto");
+		txtPrezzoPiatto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					try {	
+						nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
+						frmAggiungiPiatto.dispose();
+						//System.out.println(nomeChef.stampa());
+					}
+					catch (NumberFormatException ex){
+						ErrorGUI.main(new String[0]);
+						frmAggiungiPiatto.dispose();
+					}
+				}
+			}
+		});
+		txtPrezzoPiatto.setToolTipText("Inserisci qui il prezzo del piatto (usare il . per i decimali)");
 		txtPrezzoPiatto.setForeground(Color.BLACK);
 		txtPrezzoPiatto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPrezzoPiatto.setBounds(110, 138, 228, 20);
@@ -72,9 +93,16 @@ public class AggiungiPiattoGUI {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
-				//System.out.println(nomeChef.stampa());
-				frmAggiungiPiatto.dispose();
+
+				try {	
+					nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
+					frmAggiungiPiatto.dispose();
+					//System.out.println(nomeChef.stampa());
+				}
+				catch (NumberFormatException ex){
+					ErrorGUI.main(new String[0]);
+					frmAggiungiPiatto.dispose();
+				}
 			}
 		});
 		btnNewButton.setBounds(60, 203, 100, 45);

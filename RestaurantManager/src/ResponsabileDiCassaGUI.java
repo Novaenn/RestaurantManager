@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
@@ -44,7 +45,9 @@ public class ResponsabileDiCassaGUI {
 		frame.setBounds(100, 100, 700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+    	frame.setIconImage(img.getImage());
+    	
 		JTextPane txtpnResponsabileDiCassa = new JTextPane();
 		txtpnResponsabileDiCassa.setEditable(false);
 		txtpnResponsabileDiCassa.setFont(new Font("Tahoma", Font.PLAIN, 21));
