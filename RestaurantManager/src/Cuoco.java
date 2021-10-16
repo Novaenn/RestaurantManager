@@ -2,16 +2,20 @@ import java.util.ArrayList;
 //Cuoco --> Visualizza Ordini + Elimina un Ordine scelto.
 public class Cuoco {
 
-    static ArrayList<Ordine> ordini;
+    private ArrayList<Ordine> ordini;
 
-    public Cuoco(Cameriere cameriere){
+    public Cuoco(){
         ordini = new ArrayList();
     }
     
-    public static void addOrdine(Ordine ord) {
+    public void addOrdine(Ordine ord) {
     	ordini.add(ord);
     }
 
+    public ArrayList<Ordine> getOrdini() {
+    	return ordini;
+    }
+    
     public void rimuoviPiattoOrdinato(Ordine ordine, Piatto piatto){
         ordine.removePiattoOrdinato(piatto); 
         if (ordine.getPiattiOrdinati().size() == 0){

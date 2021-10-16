@@ -10,8 +10,7 @@ import java.util.Scanner;
 import javax.swing.JTextPane;
 import java.awt.Cursor;
 import java.awt.SystemColor;
-import java.awt.Component;
-import javax.swing.SwingConstants;
+
 
 
 
@@ -26,10 +25,11 @@ public class MenuGUI {
     	Menu cMenu = new Menu();
     	Chef Cracco = new Chef(cMenu);
         Cameriere Luca = new Cameriere();
+        Cuoco Bottura = new Cuoco();
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    MenuGUI window = new MenuGUI(Luca, Cracco, cMenu);
+                    MenuGUI window = new MenuGUI(Luca, Cracco, cMenu, Bottura);
                     window.frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -42,15 +42,15 @@ public class MenuGUI {
     /**
      * Create the application.
      */
-    public MenuGUI(Cameriere cameriere, Chef chef, Menu iMenu) {
-        initialize(cameriere, chef, iMenu);
+    public MenuGUI(Cameriere cameriere, Chef chef, Menu iMenu, Cuoco carlo) {
+        initialize(cameriere, chef, iMenu, carlo);
     }
     
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize(Cameriere cameriere, Chef chef, Menu iMenu) {
+    private void initialize(Cameriere cameriere, Chef chef, Menu iMenu, Cuoco carlo) {
     	
         frame = new JFrame();
         frame.setResizable(false);
@@ -119,7 +119,7 @@ public class MenuGUI {
         btnNewButton_2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CameriereGUI.main(new String[0], cameriere, chef);
+                CameriereGUI.main(new String[0], cameriere, chef, carlo);
             }
         });
         btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -133,7 +133,7 @@ public class MenuGUI {
         btnNewButton_3.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CuocoGUI.main(new String[0]);
+                CuocoGUI.main(new String[0], carlo);
                 
             }
         });

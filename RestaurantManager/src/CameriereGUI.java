@@ -26,11 +26,11 @@ public class CameriereGUI {
     /**
      * Launch the application.
      */
-    public static void main(String[] args, Cameriere camy, Chef mama) {
+    public static void main(String[] args, Cameriere camy, Chef mama, Cuoco carloBottura) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CameriereGUI window = new CameriereGUI(camy, mama);
+                    CameriereGUI window = new CameriereGUI(camy, mama, carloBottura);
                     window.frmCameriere.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -42,14 +42,14 @@ public class CameriereGUI {
     /**
      * Create the application.
      */
-    public CameriereGUI(Cameriere camy, Chef cooking) {
-        initialize(camy, cooking);
+    public CameriereGUI(Cameriere camy, Chef cooking, Cuoco carloB) {
+        initialize(camy, cooking, carloB);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize(Cameriere camy, Chef cooking) {
+    private void initialize(Cameriere camy, Chef cooking, Cuoco carloB) {
     	frmCameriere = new JFrame();
     	frmCameriere.setResizable(false);
     	frmCameriere.setBounds(100, 100, 700, 700);
@@ -75,27 +75,46 @@ public class CameriereGUI {
         });
         btnNewButton.setBounds(81, 518, 135, 65);
         frmCameriere.getContentPane().add(btnNewButton);
+       
+        
+        JButton btnNewButton_1 = new JButton("Finalizza");
+        
+        ImageIcon imgNull = new ImageIcon("");
+        ImageIcon imgDone = new ImageIcon("Done.png");
+        btnNewButton_1.setIcon(imgNull);
+        
+        btnNewButton_1.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		
+        		btnNewButton_1.setIcon(imgDone);
+        		
+        		Ordine daAggiungere = new Ordine();
+        		
+        		for (Piatto p : camy.ordine.getPiattiOrdinati()) {
+        			daAggiungere.addPiattoOrdinato(p);
+        		}
+        		
+        		carloB.addOrdine(daAggiungere);
+        		
+        		camy.finalizzaOrdine(); 
+        		
+        	}
+        });
+        btnNewButton_1.setBounds(479, 518, 135, 65);
+        frmCameriere.getContentPane().add(btnNewButton_1);
         
         JButton btnNewButton_2 = new JButton("Prendi ordine");
         btnNewButton_2.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
+        		btnNewButton_1.setIcon(imgNull);
+        		
         		PrendiOrdineGUI.main(new String[0], camy, cooking);
         	}
         });
         btnNewButton_2.setBounds(81, 88, 128, 65);
         frmCameriere.getContentPane().add(btnNewButton_2);
-        
-        JButton btnNewButton_1 = new JButton("Finalizza");
-        btnNewButton_1.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		System.out.println(camy.ordine.formattaOrdine());
-        		camy.finalizzaOrdine();
-        	}
-        });
-        btnNewButton_1.setBounds(479, 518, 135, 65);
-        frmCameriere.getContentPane().add(btnNewButton_1);
         
         JButton btnNewButton_3 = new JButton("Modifica Ordine");
         btnNewButton_3.addMouseListener(new MouseAdapter() {

@@ -4,13 +4,13 @@ public class ResponsabileDiCassa {
 	
 	private int nScontrino = 1;
 	
-	static ArrayList<Ordine> ordiniDaPagare;
+	 private ArrayList<Ordine> ordiniDaPagare;
 	
 	public ResponsabileDiCassa() {
-		
+		ordiniDaPagare = new ArrayList<>();
 	}
 	
-	public static void addOrdine(Ordine ord) {
+	public void addOrdine(Ordine ord) {
 		ordiniDaPagare.add(ord);
     }
 	

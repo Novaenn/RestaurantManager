@@ -1,1 +1,7 @@
-sdfasdf                    4,00 €
+Carbonara                 13,00 €
+Amatriciana                9,00 €
+InsalataDiRiso             7,00 €
+Insalatadimare            14,00 €
+Ciao                       3,00 €
+Cioao                     456,00 €
+Prova                      2,30 €

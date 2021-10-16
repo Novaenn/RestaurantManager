@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JList;
 
 public class CuocoGUI extends JDialog {
 
@@ -19,11 +21,11 @@ public class CuocoGUI extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args, Cuoco bCarlo) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CuocoGUI window = new CuocoGUI();
+					CuocoGUI window = new CuocoGUI(bCarlo);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,14 +37,14 @@ public class CuocoGUI extends JDialog {
 	/**
 	 * Create the application.
 	 */
-	public CuocoGUI() {
-		initialize();
+	public CuocoGUI(Cuoco bCarlo) {
+		initialize(bCarlo);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Cuoco bCarlo) {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 700, 700);
@@ -66,8 +68,41 @@ public class CuocoGUI extends JDialog {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(285, 556, 135, 65);
+		btnNewButton.setBounds(110, 557, 135, 65);
 		frame.getContentPane().add(btnNewButton);
+		
+		DefaultListModel<String> model = new DefaultListModel<>();
+		
+		for (int i = 0; i < bCarlo.getOrdini().size(); i++) {
+			model.addElement("Ordine #"+(i+1));
+			
+		}
+		JList<String> list = new JList<>(model);
+		list.setBounds(107, 83, 467, 299);
+		frame.getContentPane().add(list);
+		
+		JButton btnNewButton_1 = new JButton("Seleziona");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					int indice = list.getSelectedIndex();
+					Ordine selezionato = bCarlo.getOrdini().get(indice);
+					if (selezionato.getPiattiOrdinati().size() != 0) {
+						ListaPiattiGUI.main(new String[0], selezionato);
+					}
+					else {
+						bCarlo.cancellaOrdine(selezionato);
+						model.remove(indice);
+					}
+				}
+				catch(Exception ex) {
+				}
+				
+			}
+		});
+		btnNewButton_1.setBounds(439, 557, 135, 65);
+		frame.getContentPane().add(btnNewButton_1);
 		
 		
 

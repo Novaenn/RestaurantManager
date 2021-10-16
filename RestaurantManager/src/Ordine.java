@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Ordine {
 
+	private int num = 0;
+	
 	private int prezzoTot;
 	
 	private ArrayList<Piatto> piattiOrdinati;
@@ -43,6 +45,10 @@ public class Ordine {
 		piattiOrdinati = new ArrayList<>();
 	}
 	
+	public void increaseNum() {
+		num++;
+	}
+	
 	public String formattaOrdine() {
 		String stringaOrdine = "";
 		for (int i = 0; i < piattiOrdinati.size(); i++) {
@@ -54,5 +60,9 @@ public class Ordine {
 		stringaOrdine += String.format("Totale:%24.2f ", this.getPrezzoTot());
 		return stringaOrdine;
 		}
+	
+	public String toString() {
+		return "Ordine #"+String.valueOf(num);
+	}
 	
 }
