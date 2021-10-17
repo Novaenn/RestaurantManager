@@ -60,7 +60,6 @@ public class ResponsabileDiCassaGUI {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuGUI.main(new String[0]);
 				frame.dispose();
 			}
 		});

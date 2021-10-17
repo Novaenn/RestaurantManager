@@ -14,11 +14,11 @@ public class ListaPiattiGUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args, Ordine ordine) {
+	public static void main(String[] args, Ordine ordine, Cuoco cuoco) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ListaPiattiGUI window = new ListaPiattiGUI(ordine);
+					ListaPiattiGUI window = new ListaPiattiGUI(ordine, cuoco);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,14 +30,14 @@ public class ListaPiattiGUI {
 	/**
 	 * Create the application.
 	 */
-	public ListaPiattiGUI(Ordine ordine) {
-		initialize(ordine);
+	public ListaPiattiGUI(Ordine ordine, Cuoco cuoco) {
+		initialize(ordine, cuoco);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Ordine ordine) {
+	private void initialize(Ordine ordine, Cuoco cuoco) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 564, 457);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,6 +62,8 @@ public class ListaPiattiGUI {
 					ordine.removePiattoOrdinato(ordine.getPiattiOrdinati().get(list.getSelectedIndex()));
 					model.removeElementAt(list.getSelectedIndex());
 					if (ordine.getPiattiOrdinati().size() == 0) {
+						cuoco.cancellaOrdine(ordine);
+						CuocoGUI.main(null, cuoco);
 						frame.dispose();
 					}
 				}

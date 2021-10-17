@@ -75,8 +75,8 @@ public class CuocoGUI extends JDialog {
 		
 		for (int i = 0; i < bCarlo.getOrdini().size(); i++) {
 			model.addElement("Ordine #"+(i+1));
-			
 		}
+		
 		JList<String> list = new JList<>(model);
 		list.setBounds(107, 83, 467, 299);
 		frame.getContentPane().add(list);
@@ -88,13 +88,8 @@ public class CuocoGUI extends JDialog {
 				try {
 					int indice = list.getSelectedIndex();
 					Ordine selezionato = bCarlo.getOrdini().get(indice);
-					if (selezionato.getPiattiOrdinati().size() != 0) {
-						ListaPiattiGUI.main(new String[0], selezionato);
-					}
-					else {
-						bCarlo.cancellaOrdine(selezionato);
-						model.remove(indice);
-					}
+					ListaPiattiGUI.main(new String[0], selezionato, bCarlo);
+					frame.dispose();
 				}
 				catch(Exception ex) {
 				}
@@ -104,7 +99,5 @@ public class CuocoGUI extends JDialog {
 		btnNewButton_1.setBounds(439, 557, 135, 65);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		
-
 	}
 }

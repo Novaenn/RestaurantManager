@@ -7,7 +7,6 @@ public class Cameriere {
 		ordine = new Ordine();
 	}
 
-	
 	public void aggiungiNellOrdine(Piatto cPiatto) {
 		ordine.addPiattoOrdinato(cPiatto);
 	}
@@ -17,8 +16,6 @@ public class Cameriere {
 	}
 	
 	public void finalizzaOrdine() {
-		//Cuoco.addOrdine(ordine);
-		//ResponsabileDiCassa.addOrdine(ordine);
 		ordine.clear();
 	}
 	

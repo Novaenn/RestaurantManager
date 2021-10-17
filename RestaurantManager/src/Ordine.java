@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Ordine {
 
-	private int num = 0;
+	private int num = 1;
 	
 	private int prezzoTot;
 	
@@ -42,11 +42,8 @@ public class Ordine {
 	
 	public void clear() {
 		prezzoTot = 0;
-		piattiOrdinati = new ArrayList<>();
-	}
-	
-	public void increaseNum() {
 		num++;
+		piattiOrdinati = new ArrayList<>();
 	}
 	
 	public String formattaOrdine() {
@@ -63,6 +60,7 @@ public class Ordine {
 	
 	public String toString() {
 		return "Ordine #"+String.valueOf(num);
+		
 	}
 	
 }
