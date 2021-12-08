@@ -1,7 +1,0 @@
-Carbonara                 13,00 €
-Amatriciana                9,00 €
-InsalataDiRiso             7,00 €
-Insalatadimare            14,00 €
-Ciao                       3,00 €
-Bruschette                 2,30 €
-Spaghetticonlevongole     15,00 €
