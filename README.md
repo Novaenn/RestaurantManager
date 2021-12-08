@@ -4,8 +4,8 @@ Restaurant Manager for a Computer Science project [@uniroma1](http://www.uniroma
 ## Table of contents
 * [Introduction](#introduction)
 * [Features](#features)
-* [Setup](#setup)
 * [Languages used](#languages-used)
+* [Setup](#setup)
 * [Supported Operating Systems](#supported-operating-systems)
 
 ## Introduction
