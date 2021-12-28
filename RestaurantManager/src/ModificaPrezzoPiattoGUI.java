@@ -52,11 +52,13 @@ public class ModificaPrezzoPiattoGUI {
 		frmModificaPrezzo.setBounds(100, 100, 460, 310);
 		frmModificaPrezzo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmModificaPrezzo.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frmModificaPrezzo.setIconImage(img.getImage());
-		
+		frmModificaPrezzo.getContentPane().setBackground(new Color(10,28,48));
+    	
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.setName("");
+		txtNomePiatto.setBackground(new Color(223,182,127));
 		txtNomePiatto.setForeground(Color.BLACK);
 		txtNomePiatto.setToolTipText("Inserisci qui il nome del piatto da modificare");
 		txtNomePiatto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -70,13 +72,13 @@ public class ModificaPrezzoPiattoGUI {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 					nomeChef.modificaPrezzo(Float.valueOf(txtNuovoPrezzo.getText()), txtNomePiatto.getText());
-				//System.out.println(nomeChef.stampa());
 				frmModificaPrezzo.dispose();
 				}
 				
 			}
 		});
 		txtNuovoPrezzo.setToolTipText("Inserisci qui il nuovo prezzo del piatto");
+		txtNuovoPrezzo.setBackground(new Color(223,182,127));
 		txtNuovoPrezzo.setForeground(Color.BLACK);
 		txtNuovoPrezzo.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNuovoPrezzo.setBounds(110, 138, 228, 20);
@@ -84,13 +86,13 @@ public class ModificaPrezzoPiattoGUI {
 		txtNuovoPrezzo.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Modifica");
+		btnNewButton.setBackground(new Color(223,182,127));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
 					nomeChef.modificaPrezzo(Float.valueOf(txtNuovoPrezzo.getText()), txtNomePiatto.getText());
-					//System.out.println(nomeChef.stampa());
 					frmModificaPrezzo.dispose();
 				}
 				catch (NumberFormatException ex) {
@@ -103,6 +105,7 @@ public class ModificaPrezzoPiattoGUI {
 		frmModificaPrezzo.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Annulla");
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -114,18 +117,22 @@ public class ModificaPrezzoPiattoGUI {
 		frmModificaPrezzo.getContentPane().add(btnNewButton_1);
 		
 		JTextPane txtpnNome = new JTextPane();
+		txtpnNome.setForeground(new Color(255, 255, 255));
 		txtpnNome.setBackground(SystemColor.menu);
 		txtpnNome.setEditable(false);
 		txtpnNome.setRequestFocusEnabled(false);
 		txtpnNome.setText("Nome");
 		txtpnNome.setBounds(110, 38, 50, 20);
+		txtpnNome.setBackground(new Color(10,28,48));
 		frmModificaPrezzo.getContentPane().add(txtpnNome);
 		
 		JTextPane txtpnPrezzo = new JTextPane();
+		txtpnPrezzo.setForeground(new Color(255, 255, 255));
 		txtpnPrezzo.setEditable(false);
 		txtpnPrezzo.setText("Nuovo prezzo");
 		txtpnPrezzo.setBackground(SystemColor.menu);
 		txtpnPrezzo.setBounds(110, 119, 130, 20);
+		txtpnPrezzo.setBackground(new Color(10,28,48));
 		frmModificaPrezzo.getContentPane().add(txtpnPrezzo);
 	}
 

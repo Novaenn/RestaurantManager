@@ -16,6 +16,7 @@ public class Cameriere {
 	}
 	
 	public void finalizzaOrdine() {
+		//System.out.println(ordine.toString());
 		ordine.clear();
 	}
 	

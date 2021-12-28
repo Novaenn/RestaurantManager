@@ -52,11 +52,13 @@ public class AggiungiPiattoGUI {
 		frmAggiungiPiatto.setBounds(100, 100, 460, 310);
 		frmAggiungiPiatto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAggiungiPiatto.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frmAggiungiPiatto.setIconImage(img.getImage());
+    	frmAggiungiPiatto.getContentPane().setBackground(new Color(10,28,48));
 		
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.setName("");
+		txtNomePiatto.setBackground(new Color(223,182,127));
 		txtNomePiatto.setForeground(Color.BLACK);
 		txtNomePiatto.setToolTipText("Inserisci qui il nome del piatto");
 		txtNomePiatto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -65,6 +67,7 @@ public class AggiungiPiattoGUI {
 		txtNomePiatto.setColumns(10);
 		
 		txtPrezzoPiatto = new JTextField();
+		txtPrezzoPiatto.setBackground(new Color(223,182,127));
 		txtPrezzoPiatto.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -72,7 +75,6 @@ public class AggiungiPiattoGUI {
 					try {	
 						nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
 						frmAggiungiPiatto.dispose();
-						//System.out.println(nomeChef.stampa());
 					}
 					catch (NumberFormatException ex){
 						ErrorGUI.main(new String[0]);
@@ -89,18 +91,28 @@ public class AggiungiPiattoGUI {
 		txtPrezzoPiatto.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Aggiungi");
+		btnNewButton.setBackground(new Color(223,182,127));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				try {	
-					nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
-					frmAggiungiPiatto.dispose();
-					//System.out.println(nomeChef.stampa());
+				boolean in = false;
+				for (int i = 0; i < nomeChef.getMenu().getListaPiatti().size(); i++) {
+					if (nomeChef.getMenu().getListaPiatti().get(i).getNome().equals(txtNomePiatto.getText())) {
+						in = true;
+					}
 				}
-				catch (NumberFormatException ex){
-					ErrorGUI.main(new String[0]);
+				if (!in) {
+					try {	
+						nomeChef.aggiungiPiatto(txtNomePiatto.getText(), Float.valueOf(txtPrezzoPiatto.getText()));
+						frmAggiungiPiatto.dispose();
+					}
+					catch (NumberFormatException ex){
+						ErrorGUI.main(new String[0]);
+						frmAggiungiPiatto.dispose();
+					}
+				}
+				else {
+					ErrorGUI3.main(new String[0]);
 					frmAggiungiPiatto.dispose();
 				}
 			}
@@ -109,6 +121,7 @@ public class AggiungiPiattoGUI {
 		frmAggiungiPiatto.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Annulla");
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -120,18 +133,22 @@ public class AggiungiPiattoGUI {
 		frmAggiungiPiatto.getContentPane().add(btnNewButton_1);
 		
 		JTextPane txtpnNome = new JTextPane();
+		txtpnNome.setForeground(new Color(255, 255, 255));
 		txtpnNome.setBackground(SystemColor.menu);
 		txtpnNome.setEditable(false);
 		txtpnNome.setRequestFocusEnabled(false);
 		txtpnNome.setText("Nome");
 		txtpnNome.setBounds(110, 38, 50, 20);
+		txtpnNome.setBackground(new Color(10,28,48));
 		frmAggiungiPiatto.getContentPane().add(txtpnNome);
 		
 		JTextPane txtpnPrezzo = new JTextPane();
+		txtpnPrezzo.setForeground(new Color(255, 255, 255));
 		txtpnPrezzo.setEditable(false);
 		txtpnPrezzo.setText("Prezzo");
 		txtpnPrezzo.setBackground(SystemColor.menu);
 		txtpnPrezzo.setBounds(110, 119, 50, 20);
+		txtpnPrezzo.setBackground(new Color(10,28,48));
 		frmAggiungiPiatto.getContentPane().add(txtpnPrezzo);
 	}
 }

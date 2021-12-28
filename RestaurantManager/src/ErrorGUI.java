@@ -3,6 +3,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.Font;
@@ -48,9 +50,12 @@ public class ErrorGUI {
 		frame.setBounds(100, 100, 433, 239);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setBackground(new Color(10,28,48));
 		
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
+    	frame.setIconImage(img.getImage());
 		
-		ImageIcon imgError = new ImageIcon("Error.png");
+		ImageIcon imgError = new ImageIcon("icons/Error.png");
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.addKeyListener(new KeyAdapter() {
 			@Override
@@ -65,6 +70,7 @@ public class ErrorGUI {
 		lblNewLabel.setIcon(imgError);
 		
 		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setBackground(new Color(223,182,127));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -75,16 +81,19 @@ public class ErrorGUI {
 		frame.getContentPane().add(btnNewButton);
 		
 		JTextPane txtpnErrorePiattoNon = new JTextPane();
+		txtpnErrorePiattoNon.setForeground(new Color(255, 255, 255));
 		txtpnErrorePiattoNon.setFocusable(false);
 		txtpnErrorePiattoNon.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtpnErrorePiattoNon.setText("\r\n\r\n\r\nERRORE: Formato non valido / Piatto non trovato");
 		txtpnErrorePiattoNon.setEditable(false);
 		txtpnErrorePiattoNon.setBounds(106, 0, 311, 140);
+		txtpnErrorePiattoNon.setBackground(new Color(10,28,48));
 		frame.getContentPane().add(txtpnErrorePiattoNon);
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
 		textPane.setBounds(0, 0, 107, 141);
+		textPane.setBackground(new Color(10,28,48));
 		frame.getContentPane().add(textPane);
 		
 		

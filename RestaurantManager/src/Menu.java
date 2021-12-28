@@ -16,14 +16,14 @@ public class Menu {
 		try {
 			Scanner fileIn = new Scanner(new File(fileNameMenu));
 		    while (fileIn.hasNextLine()) {
-		        riga = fileIn.nextLine().replaceAll("\\s", "");
+		        riga = fileIn.nextLine();
 		        int k = 0;
 		        String nome = "";
 		        String prezzo = "";
-		        while (Character.isAlphabetic(riga.charAt(k))) {
-		        	nome += String.valueOf(riga.charAt(k));
+		        while (!Character.isDigit(riga.charAt(k))) {
 		        	k++;
 		        }
+		        nome = riga.substring(0, k-1);
 		        
 		        while (Character.isDigit(riga.charAt(k))) {
 		        	prezzo += String.valueOf(riga.charAt(k));
@@ -35,7 +35,7 @@ public class Menu {
 		        	prezzo += String.valueOf(riga.charAt(k));
 		        	k++;
 		    	}
-		        this.addPiatto(new Piatto(nome, Float.valueOf(prezzo)));
+		        this.addPiattoDalMenu(new Piatto(nome, Float.valueOf(prezzo)));
 		        
 		    }
 		    fileIn.close();
@@ -51,9 +51,9 @@ public class Menu {
 		return listaPiatti;
 	}
 
-	public void setListaPiatti(ArrayList<Piatto> listaPiatti) {
-		this.listaPiatti = listaPiatti;
-	} 
+	public void addPiattoDalMenu(Piatto mPiatto) {
+		listaPiatti.add(mPiatto);
+	}
 	
 	public void addPiatto(Piatto mPiatto) {
 		listaPiatti.add(mPiatto);
@@ -106,8 +106,7 @@ public class Menu {
 	public String formattaMenu() {
 		String stringaMenu = "";
 		for (int i = 0; i < listaPiatti.size(); i++) {
-			stringaMenu +=String.format("%-25s %5.2f", listaPiatti.get(i).getNome(), listaPiatti.get(i).getPrezzo());	
-			stringaMenu += " €";
+			stringaMenu += listaPiatti.get(i).getNome() + " " + listaPiatti.get(i).getPrezzo() + " ï¿½";
 			if (i!= listaPiatti.size()-1) {
 				stringaMenu += "\n";
 			}

@@ -2,21 +2,42 @@ import java.util.ArrayList;
 
 public class Ordine {
 
-	private int num = 1;
+	private int num = 0;
+	
+	protected Scontrino paper;
+		
+	private float tot = 0;
 	
 	private int prezzoTot;
 	
 	private ArrayList<Piatto> piattiOrdinati;
 	
 	public Ordine() {
+		paper = new Scontrino("");
+		num++;
 		prezzoTot = 0;
 		piattiOrdinati = new ArrayList<>();
 	}
 	
-
+	//public void creaScontrino() {
+	//	paper.generaScontrino(piattiOrdinati);
+	//		
+	//}
+	
 	public void addPiattoOrdinato(Piatto nPiatto) {
 		piattiOrdinati.add(nPiatto);
 		prezzoTot += nPiatto.getPrezzo();
+	}
+	
+	public void addPiattoScontrino(Piatto nPiatto) {
+		
+		paper.aggiungiRiga(paper.formattaRiga(nPiatto));
+		tot += nPiatto.getPrezzo();
+		if (piattiOrdinati.size() == 1) {
+			String stringa = "--------------------------------------\n"
+	    			+ String.format("Totale:%24.2f ", tot);
+			paper.aggiungiRiga(stringa);
+		}
 	}
 	
 	public void removePiattoOrdinato(Piatto nPiatto) {
@@ -28,36 +49,24 @@ public class Ordine {
 		return prezzoTot;
 	}
 
-	public void setPrezzoTot(int prezzoTot) {
-		this.prezzoTot = prezzoTot;
+	public int getNum() {
+		return num;
+	}
+	
+	public void setNum(int numero) {
+		num = numero;
 	}
 
 	public ArrayList<Piatto> getPiattiOrdinati() {
 		return piattiOrdinati;
 	}
-
-	public void setPiattiOrdinati(ArrayList<Piatto> piattiOrdinati) {
-		this.piattiOrdinati = piattiOrdinati;
-	}
 	
 	public void clear() {
-		prezzoTot = 0;
 		num++;
+		prezzoTot = 0;
 		piattiOrdinati = new ArrayList<>();
 	}
-	
-	public String formattaOrdine() {
-		String stringaOrdine = "";
-		for (int i = 0; i < piattiOrdinati.size(); i++) {
-			stringaOrdine +=String.format("%-25s %5.2f", piattiOrdinati.get(i).getNome(), piattiOrdinati.get(i).getPrezzo());				
-			stringaOrdine += "\n";
-		}
-		stringaOrdine += "\n";
-		stringaOrdine += "\n-------------------------------- \n";			
-		stringaOrdine += String.format("Totale:%24.2f ", this.getPrezzoTot());
-		return stringaOrdine;
-		}
-	
+
 	public String toString() {
 		return "Ordine #"+String.valueOf(num);
 		

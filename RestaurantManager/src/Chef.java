@@ -26,8 +26,4 @@ public class Chef {
 	public void modificaPrezzo(float prezzoPiatto, String nomePiatto) {
 		mMenu.modificaPrezzo(prezzoPiatto, nomePiatto);
 	}
-	
-	public String stampa() {
-		return mMenu.formattaMenu();
-	}
 }

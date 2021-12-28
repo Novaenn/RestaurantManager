@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
@@ -46,9 +47,12 @@ public class ModificaOrdineGUI {
 		frame.setBounds(100, 100, 460, 310);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frame.setIconImage(img.getImage());
+    	frame.getContentPane().setBackground(new Color(10,28,48));
+    	
 		JButton btnNewButton_1_1 = new JButton("Annulla");
+		btnNewButton_1_1.setBackground(new Color(223,182,127));
 		btnNewButton_1_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -59,6 +63,7 @@ public class ModificaOrdineGUI {
 		frame.getContentPane().add(btnNewButton_1_1);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(223,182,127));
 		comboBox.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -79,22 +84,30 @@ public class ModificaOrdineGUI {
 		//JComboBox<Piatto> comboBox = new JComboBox<Piatto>(new Vector<Piatto>(camerupt.getListaPiatti()));
 		
 		JButton btnNewButton_1 = new JButton("Rimuovi");
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				camerupt.rimuoviNellOrdine((Piatto) comboBox.getSelectedItem());
-				//System.out.println(camerupt.ordine.toString());
-				frame.dispose();
+				try {
+					camerupt.rimuoviNellOrdine((Piatto) comboBox.getSelectedItem());
+					//System.out.println(camerupt.ordine.toString());
+					frame.dispose();
+				}
+				catch (Exception ex) {
+					
+				}
 			}
 		});
 		btnNewButton_1.setBounds(55, 197, 100, 45);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JTextPane txtpnScegliIlPiatto = new JTextPane();
+		txtpnScegliIlPiatto.setForeground(new Color(255, 255, 255));
 		txtpnScegliIlPiatto.setBackground(SystemColor.menu);
 		txtpnScegliIlPiatto.setText("Scegli il piatto da rimuovere dall'ordine:");
 		txtpnScegliIlPiatto.setEditable(false);
 		txtpnScegliIlPiatto.setBounds(132, 35, 198, 20);
+		txtpnScegliIlPiatto.setBackground(new Color(10,28,48));
 		frame.getContentPane().add(txtpnScegliIlPiatto);
 	}
 }

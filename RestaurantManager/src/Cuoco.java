@@ -16,13 +16,6 @@ public class Cuoco {
     	return ordini;
     }
     
-    public void rimuoviPiattoOrdinato(Ordine ordine, Piatto piatto){
-        ordine.removePiattoOrdinato(piatto); 
-        if (ordine.getPiattiOrdinati().size() == 0){
-            ordini.remove(ordine);
-        }       
-    }
-
     public void cancellaOrdine(Ordine ordine){
         ordini.remove(ordine);    
     }
