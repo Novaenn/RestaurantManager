@@ -26,7 +26,8 @@ To run this project:
 ```
 $ git clone https://github.com/Novaenn/RestaurantManager
 $ cd RestaurantManager/src/
-$ 
+$ javac MenuGUI.java
+$ Java MenuGUI
 ```
 ## Supported Operating Systems
 [![](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white "Linux is better")](https://www.microsoft.com/it-it/windows) [![](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white "Linux is also better")](https://www.apple.com/it/macos/) [![](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://archlinux.org/ "Perfection.")
