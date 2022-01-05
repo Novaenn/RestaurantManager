@@ -23,7 +23,7 @@ public class Chef {
 	}
 	
 	/**
-	 * Aggiunge un'istanza della classe Piatto all menu
+	 * Aggiunge un'istanza della classe Piatto al menu
 	 * @param nomePiatto Nome del piatto
 	 * @param prezzoPiatto Prezzo del piatto
 	 */

@@ -39,7 +39,7 @@ public class Cameriere {
 	}
 	
 	/**
-	 * Annulla l'ordine e prepara una nuova istanza per il prossimo
+	 * Annulla l'ordine e prepara una nuova istanza per il prossimo cliente
 	 */
 	public void annullaOrdine() {
 		ordine = new Ordine();

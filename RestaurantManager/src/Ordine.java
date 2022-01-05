@@ -104,7 +104,7 @@ public class Ordine {
 	}
 	
 	/**
-	 * Restta totalmente l'ordine
+	 * Resetta totalmente l'ordine
 	 */
 	public void clear() {
 		num++;
