@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -48,11 +49,13 @@ public class PrendiOrdineGUI {
 		frame.setBounds(100, 100, 460, 310);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frame.setIconImage(img.getImage());
+    	frame.getContentPane().setBackground(new Color(10,28,48));
 
 		
 		JButton btnNewButton_1_1 = new JButton("Annulla");
+		btnNewButton_1_1.setBackground(new Color(223,182,127));
 		btnNewButton_1_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -64,6 +67,7 @@ public class PrendiOrdineGUI {
 		frame.getContentPane().add(btnNewButton_1_1);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(223,182,127));
 		comboBox.setToolTipText("Scegli un piatto da ordinare");
 		comboBox.setBounds(268, 44, 123, 22);
 		for (int i = 0; i < cookingMama.getMenu().getListaPiatti().size(); i++) {
@@ -76,22 +80,27 @@ public class PrendiOrdineGUI {
 
 		
 		JTextPane txtpnScegliIlPiatto = new JTextPane();
+		txtpnScegliIlPiatto.setForeground(new Color(255, 255, 255));
 		txtpnScegliIlPiatto.setBackground(SystemColor.menu);
 		txtpnScegliIlPiatto.setText("Scegli il piatto da aggiungere all'ordine:");
 		txtpnScegliIlPiatto.setEditable(false);
 		txtpnScegliIlPiatto.setBounds(55, 44, 198, 20);
+		txtpnScegliIlPiatto.setBackground(new Color(10,28,48));
 		frame.getContentPane().add(txtpnScegliIlPiatto);
 		
 		JTextPane txtpnScegliLaQunatit = new JTextPane();
+		txtpnScegliLaQunatit.setForeground(new Color(255, 255, 255));
 		txtpnScegliLaQunatit.setBackground(SystemColor.menu);
-		txtpnScegliLaQunatit.setText("Scegli la quantit\u00E0 da inserire:");
+		txtpnScegliLaQunatit.setText("Scegli la quantita da inserire:");
 		txtpnScegliLaQunatit.setEditable(false);
 		txtpnScegliLaQunatit.setBounds(55, 120, 198, 20);
+		txtpnScegliLaQunatit.setBackground(new Color(10,28,48));
 		frame.getContentPane().add(txtpnScegliLaQunatit);
 		
-		int[] quantità = new int[] {1,2,3,4,5,6,7,8,9,10};
+		int[] quantita = new int[] {1,2,3,4,5,6,7,8,9,10};
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBackground(new Color(223,182,127));
 		comboBox_1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -104,14 +113,15 @@ public class PrendiOrdineGUI {
 			}
 		});
 		
-		for (int k = 0; k < quantità.length; k++) {
-			comboBox_1.addItem(quantità[k]);
+		for (int k = 0; k < quantita.length; k++) {
+			comboBox_1.addItem(quantita[k]);
 		}
 		
 		comboBox_1.setBounds(268, 120, 60, 22);
 		frame.getContentPane().add(comboBox_1);
 		
 		JButton btnNewButton_1 = new JButton("Aggiungi");
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

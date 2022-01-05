@@ -51,8 +51,9 @@ public class RimuoviPiattoGUI {
 		frmRimuoviPiatto.setBounds(100, 100, 460, 310);
 		frmRimuoviPiatto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRimuoviPiatto.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frmRimuoviPiatto.setIconImage(img.getImage());
+    	frmRimuoviPiatto.getContentPane().setBackground(new Color(10,28,48));
 		
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.addKeyListener(new KeyAdapter() {
@@ -60,13 +61,13 @@ public class RimuoviPiattoGUI {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 					nomeChef.eliminaPiatto(txtNomePiatto.getText());
-				//System.out.println(nomeChef.stampa());
 				frmRimuoviPiatto.dispose();
 				}
 				
 			}
 		});
 		txtNomePiatto.setName("");
+		txtNomePiatto.setBackground(new Color(223,182,127));
 		txtNomePiatto.setForeground(Color.BLACK);
 		txtNomePiatto.setToolTipText("Inserisci qui il nome del piatto da rimuovere");
 		txtNomePiatto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -75,12 +76,12 @@ public class RimuoviPiattoGUI {
 		txtNomePiatto.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Rimuovi");
+		btnNewButton.setBackground(new Color(223,182,127));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				nomeChef.eliminaPiatto(txtNomePiatto.getText());
-				//System.out.println(nomeChef.stampa());
 				frmRimuoviPiatto.dispose();
 			}
 		});
@@ -96,14 +97,17 @@ public class RimuoviPiattoGUI {
 			}
 		});
 		btnNewButton_1.setBounds(280, 203, 100, 45);
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		frmRimuoviPiatto.getContentPane().add(btnNewButton_1);
 		
 		JTextPane txtpnNome = new JTextPane();
+		txtpnNome.setForeground(new Color(255, 255, 255));
 		txtpnNome.setBackground(SystemColor.menu);
 		txtpnNome.setEditable(false);
 		txtpnNome.setRequestFocusEnabled(false);
 		txtpnNome.setText("Nome");
 		txtpnNome.setBounds(110, 84, 50, 20);
+		txtpnNome.setBackground(new Color(10,28,48));
 		frmRimuoviPiatto.getContentPane().add(txtpnNome);
 	}
 

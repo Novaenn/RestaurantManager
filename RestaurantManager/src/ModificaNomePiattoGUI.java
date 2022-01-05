@@ -52,11 +52,14 @@ public class ModificaNomePiattoGUI {
 		frmModificaNome.setBounds(100, 100, 460, 310);
 		frmModificaNome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmModificaNome.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frmModificaNome.setIconImage(img.getImage());
+    	frmModificaNome.getContentPane().setBackground(new Color(10,28,48));
+    	
 		
 		txtNomePiatto = new JTextField();
 		txtNomePiatto.setName("");
+		txtNomePiatto.setBackground(new Color(223,182,127));
 		txtNomePiatto.setForeground(Color.BLACK);
 		txtNomePiatto.setToolTipText("Inserisci qui il nome del piatto da modificare");
 		txtNomePiatto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -70,12 +73,12 @@ public class ModificaNomePiattoGUI {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 					nomeChef.modificaNome(txtNuovoNome.getText(), txtNomePiatto.getText());
-					//System.out.println(nomeChef.stampa());
 					frmModificaNome.dispose();
 				}
 			}
 		});
 		txtNuovoNome.setToolTipText("Inserisci qui il nuovo nome del piatto");
+		txtNuovoNome.setBackground(new Color(223,182,127));
 		txtNuovoNome.setForeground(Color.BLACK);
 		txtNuovoNome.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNuovoNome.setBounds(110, 138, 228, 20);
@@ -83,12 +86,12 @@ public class ModificaNomePiattoGUI {
 		txtNuovoNome.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Modifica");
+		btnNewButton.setBackground(new Color(223,182,127));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				nomeChef.modificaNome(txtNuovoNome.getText(), txtNomePiatto.getText());
-				//System.out.println(nomeChef.stampa());
 				frmModificaNome.dispose();
 			}
 		});
@@ -104,21 +107,26 @@ public class ModificaNomePiattoGUI {
 			}
 		});
 		btnNewButton_1.setBounds(280, 203, 100, 45);
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		frmModificaNome.getContentPane().add(btnNewButton_1);
 		
 		JTextPane txtpnNome = new JTextPane();
+		txtpnNome.setForeground(new Color(255, 255, 255));
 		txtpnNome.setBackground(SystemColor.menu);
 		txtpnNome.setEditable(false);
 		txtpnNome.setRequestFocusEnabled(false);
 		txtpnNome.setText("Nome");
 		txtpnNome.setBounds(110, 38, 50, 20);
+		txtpnNome.setBackground(new Color(10,28,48));
 		frmModificaNome.getContentPane().add(txtpnNome);
 		
 		JTextPane txtpnPrezzo = new JTextPane();
+		txtpnPrezzo.setForeground(new Color(255, 255, 255));
 		txtpnPrezzo.setEditable(false);
 		txtpnPrezzo.setText("Nuovo nome");
 		txtpnPrezzo.setBackground(SystemColor.menu);
 		txtpnPrezzo.setBounds(110, 119, 130, 20);
+		txtpnPrezzo.setBackground(new Color(10,28,48));
 		frmModificaNome.getContentPane().add(txtpnPrezzo);
 	}
 

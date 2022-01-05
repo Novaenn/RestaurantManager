@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -9,10 +10,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JList;
+import javax.swing.JPanel;
 
 public class CuocoGUI extends JDialog {
 
@@ -50,17 +53,12 @@ public class CuocoGUI extends JDialog {
 		frame.setBounds(100, 100, 700, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		ImageIcon img = new ImageIcon("ShellKrustyKrab.png");
+		ImageIcon img = new ImageIcon("icons/ShellKrustyKrab.png");
     	frame.setIconImage(img.getImage());
-		
-		JTextPane txtpnCuoco = new JTextPane();
-		txtpnCuoco.setEditable(false);
-		txtpnCuoco.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		txtpnCuoco.setText("                                            CUOCO");
-		txtpnCuoco.setBounds(0, 0, 694, 45);
-		frame.getContentPane().add(txtpnCuoco);
+    	frame.getContentPane().setBackground(new Color(10,28,48));
 		
 		JButton btnNewButton = new JButton("Indietro");
+		btnNewButton.setBackground(new Color(223,182,127));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -71,17 +69,21 @@ public class CuocoGUI extends JDialog {
 		btnNewButton.setBounds(110, 557, 135, 65);
 		frame.getContentPane().add(btnNewButton);
 		
-		DefaultListModel<String> model = new DefaultListModel<>();
+		DefaultListModel<Ordine> model = new DefaultListModel<>();
 		
 		for (int i = 0; i < bCarlo.getOrdini().size(); i++) {
-			model.addElement("Ordine #"+(i+1));
+			model.addElement(bCarlo.getOrdini().get(i));
 		}
 		
-		JList<String> list = new JList<>(model);
+		JList<Ordine> list = new JList<>(model);
+		list.setForeground(new Color(255, 255, 255));
 		list.setBounds(107, 83, 467, 299);
+		list.setBackground(new Color(10,28,48));
 		frame.getContentPane().add(list);
 		
+		
 		JButton btnNewButton_1 = new JButton("Seleziona");
+		btnNewButton_1.setBackground(new Color(223,182,127));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -98,6 +100,17 @@ public class CuocoGUI extends JDialog {
 		});
 		btnNewButton_1.setBounds(439, 557, 135, 65);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(104, 80, 473, 306);
+		frame.getContentPane().add(panel);
+		panel.setBackground(new Color(223,182,27)); 
+		
+		JLabel lblNewLabel = new JLabel("");
+        ImageIcon imgCam = new ImageIcon("icons/Cuoco2.png");
+        lblNewLabel.setIcon(imgCam);
+        lblNewLabel.setBounds(190, 0, 357, 75);
+        frame.getContentPane().add(lblNewLabel);
 		
 	}
 }
