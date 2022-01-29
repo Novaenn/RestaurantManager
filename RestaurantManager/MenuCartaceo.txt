@@ -1,1 +1,7 @@
-Carbonara 10.0 €
+Amatriciana 12.0 €
+Carbonara 12.0 €
+Insalata Di Mare 14.0 €
+Insalata Mista 7.0 €
+Gnocchi al Pesto 13.0 €
+Tiramisu 10.0 €
+Crostatina 1.0 €
