@@ -53,7 +53,7 @@ public class Piatto {
 	}
 	
 	public String toString() {
-		return this.nome+ " " +String.valueOf(this.prezzo) + " €";
+		return this.nome+ " " +String.valueOf(this.prezzo) + " â‚¬";
 	}
 	
 }

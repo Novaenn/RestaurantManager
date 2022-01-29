@@ -149,7 +149,7 @@ public class Menu {
 	public String formattaMenu() {
 		String stringaMenu = "";
 		for (int i = 0; i < listaPiatti.size(); i++) {
-			stringaMenu += listaPiatti.get(i).getNome() + " " + listaPiatti.get(i).getPrezzo() + " �";
+			stringaMenu += listaPiatti.get(i).getNome() + " " + listaPiatti.get(i).getPrezzo() + " €";
 			if (i!= listaPiatti.size()-1) {
 				stringaMenu += "\n";
 			}

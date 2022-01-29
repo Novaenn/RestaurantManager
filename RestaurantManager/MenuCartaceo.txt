@@ -1,6 +1,1 @@
-Amatriciana 12.0 �
-Carbonara 14.0 �
-Insalata di mare 16.0 �
-Tonnarelli al ragu 12.0 �
-Insalata mista 7.0 �
-Gnocchi al pesto 13.0 �
+Carbonara 10.0 €
